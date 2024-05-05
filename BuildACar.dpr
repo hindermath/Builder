@@ -21,7 +21,7 @@ begin
       .WithPs(136)
       .Build;
 
-    Writeln(Car.Kw);
+    Writeln(Car.Kw, Car.Ps);
   finally
     CarBuilder.Free;
   end;
