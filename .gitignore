@@ -80,3 +80,6 @@ fp.cfg
 fp.dsk
 
 # End of https://www.toptal.com/developers/gitignore/api/delphi,freepascal
+Win32/Debug/dunitx-results.xml
+
+Win32/Release/dunitx-results.xml
