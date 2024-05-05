@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{27B10769-A9AB-458E-B5FB-B4C7F11FCCEF}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="BuildACar.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TestBuildACar.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="BuildACar">
+        <MSBuild Projects="BuildACar.dproj"/>
+    </Target>
+    <Target Name="BuildACar:Clean">
+        <MSBuild Projects="BuildACar.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BuildACar:Make">
+        <MSBuild Projects="BuildACar.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TestBuildACar">
+        <MSBuild Projects="TestBuildACar.dproj"/>
+    </Target>
+    <Target Name="TestBuildACar:Clean">
+        <MSBuild Projects="TestBuildACar.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TestBuildACar:Make">
+        <MSBuild Projects="TestBuildACar.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="BuildACar;TestBuildACar"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="BuildACar:Clean;TestBuildACar:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="BuildACar:Make;TestBuildACar:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
