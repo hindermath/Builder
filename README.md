@@ -1,1 +1,2 @@
-# A Builder design pattern in DELPHI
+# A simple Builder design pattern in DELPHI
+
